@@ -125,6 +125,13 @@
      zsh            # The Z shell
    ];
 
+  # Fonts
+  fonts.fonts = with pkgs; [
+    nerdfonts        # Nerd Iconic font aggregator
+    font-awesome     # Font awesome iconic font
+    noto-fonts       # Beautiful and free fonts for many languages
+  ];
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -321,8 +328,6 @@
        gnome3.cheese    # Take photos and videos with your webcam, with effects
        webcamoid        # Webcam Capture Software
        glances          # Cross-platform curses-based monitoring tool
-       nerdfonts        # Nerd Iconic font aggregator
-       font-awesome     # Font awesome iconic font
        filezilla        # Graphical FTP,FTPS and SFTP client
        mailspring       # A beautiful, fast and maintained fork of Nylas Mail
        haskellPackages.xmobar # A minimalistic Text Based Status Bar
