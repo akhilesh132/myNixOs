@@ -316,19 +316,20 @@
        zoom-us          # Zoom meetings
        calibre          # e-Library manager
        xbrightness      # X11 screen brightness controller
-       mtpfs
-       jmtpfs
-       gnome3.cheese   # Take photos and videos with your webcam, with effects
-       webcamoid       # Webcam Capture Software
-       glances         # Cross-platform curses-based monitoring tool
-       nerdfonts       # Nerd Iconic font aggregator
-       font-awesome    # Font awesome iconic font
-       filezilla       # Graphical FTP,FTPS and SFTP client
-       mailspring      # A beautiful, fast and maintained fork of Nylas Mail
+       mtpfs            # FUSE Filesystem providing access to MTP devices
+       jmtpfs           # A FUSE filesystem for MTP devices like Android phones
+       gnome3.cheese    # Take photos and videos with your webcam, with effects
+       webcamoid        # Webcam Capture Software
+       glances          # Cross-platform curses-based monitoring tool
+       nerdfonts        # Nerd Iconic font aggregator
+       font-awesome     # Font awesome iconic font
+       filezilla        # Graphical FTP,FTPS and SFTP client
+       mailspring       # A beautiful, fast and maintained fork of Nylas Mail
        haskellPackages.xmobar # A minimalistic Text Based Status Bar
-       trayer          # A lightweight GTK2-based systray for UNIX desktop
+       i3lock-color     # A simple screen locker like slock, enhanced version
+       trayer           # A lightweight GTK2-based systray for UNIX desktop
        networkmanagerapplet # network manager applet
-       pasystray       # PulseAudio system tray
+       pasystray        # PulseAudio system tray
      ];
    };
 
