@@ -150,6 +150,9 @@
        package = pkgs.adoptopenjdk-bin;
      };
 
+    # Running GNOME programs outside of gnome
+    programs.dconf.enable = true;
+
   # Location to enable day-light saving, night light functionality
   # The location provider to use for determining your location. 
   # location = "manual" or "geoclue2"
@@ -290,6 +293,7 @@
        mupdf            # A lightweight vim inspired pdf reader
        zathura          # A lightweight pdf reader
        gnome3.evince    # Evince pdf reader
+       gnome3.adwaita-icon-theme   # Many programs rely heavily on having an icon theme available
        rtorrent         # Command line torrent client  
        qbittorrent      # Torrent GUI client
        aria 
@@ -301,7 +305,8 @@
        mpv              # mpv video player
        mplayer          # A movie player that supports many video formats
        youtube-dl       # Command line youtube downloader
-       mps-youtube
+       mps-youtube      # Terminal based Youtube player and helper
+       smtube           # Play and download Youtube videos
        tdesktop         # Telegram desktop client     
        gnome3.eog       # Eye-of-Gnome image viewer
        gthumb           # image viewer, organizer
