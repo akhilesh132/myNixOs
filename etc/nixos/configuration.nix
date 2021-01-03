@@ -289,6 +289,7 @@
        python2          # Python 2
        nodejs           # Node js
        mysql-workbench  # Visual MySql database modelling, administration and querying tool
+       dbeaver          # Universal SQL client for developers, Supports MySQL, PostgreSQL, Oracle and more
        joplin-desktop   # An open source note taking and To-Do application
        mupdf            # A lightweight vim inspired pdf reader
        zathura          # A lightweight pdf reader
