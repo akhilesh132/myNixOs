@@ -123,6 +123,9 @@
      iw             # Tool to use nl80211
      networkmanager # Network configuration and managment tool
      zsh            # The Z shell
+     mtpfs          # FUSE Filesystem providing access to MTP devices
+     jmtpfs         # A FUSE filesystem for MTP devices like Android phones
+     fuse3          # Library that allows filesystems to be implemented in user space
    ];
 
   # Fonts
@@ -163,7 +166,10 @@
     longitude = 86.69;
   };
 
-  # List services that you want to enable:
+  # udev rules
+  services.udev.packages = [ pkgs.android-udev-rules ];
+
+  # Services
   # ------------------------------------------------------------------------------
     # Mysql database server
     services.mysql = {
@@ -178,7 +184,7 @@
     };
 
     # Network time synchronization
-    services.ntp.enable = true;
+    services.chrony.enable = true;
 
     # Picom as X11 compositor
     services.picom = {
@@ -260,7 +266,6 @@
        rxvt-unicode     # urxvt Terminal emulator
        dmenu            # A generic menu for the X window System
        rofi             # Window switcher, run dialog and dmenu replacement
-       albert           # Desktop agnostic launcher
        feh              # Light weight image viewer, wallpaper change
        nitrogen         # Wallpaper setter
        firefox          # Firefox web browser
@@ -323,14 +328,13 @@
        spotify          # Play music from the Spotify music service
        cinnamon.nemo    # Nemo GUI file manager
        gnome3.nautilus  # Nautilus GUI file manager
+       gnome3.sushi     # A quick previewer for Nautilus
        teamviewer       # Teamviewer Desktop client
        teams            # Microsoft teams meetings
        skypeforlinux    # Skype Desktop client
        zoom-us          # Zoom meetings
        calibre          # e-Library manager
        xbrightness      # X11 screen brightness controller
-       mtpfs            # FUSE Filesystem providing access to MTP devices
-       jmtpfs           # A FUSE filesystem for MTP devices like Android phones
        gnome3.cheese    # Take photos and videos with your webcam, with effects
        webcamoid        # Webcam Capture Software
        glances          # Cross-platform curses-based monitoring tool
