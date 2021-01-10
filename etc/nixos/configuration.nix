@@ -126,6 +126,7 @@
      mtpfs          # FUSE Filesystem providing access to MTP devices
      jmtpfs         # A FUSE filesystem for MTP devices like Android phones
      fuse3          # Library that allows filesystems to be implemented in user space
+     
    ];
 
   # Fonts
@@ -167,7 +168,10 @@
   };
 
   # udev rules
-  services.udev.packages = [ pkgs.android-udev-rules ];
+  services.udev.packages = with pkgs; [ 
+    android-udev-rules
+    gnome3.gnome-settings-daemon
+  ];
 
   # Services
   # ------------------------------------------------------------------------------
@@ -209,9 +213,9 @@
     # color temperature
     services.redshift = {
       enable = true;
-      brightness.day = "0.9";
-      brightness.night = "0.8";
-      temperature.day = 5500;
+      brightness.day = "0.8";
+      brightness.night = "0.7";
+      temperature.day = 5000;
       temperature.night = 4000;
     };
 
@@ -345,6 +349,29 @@
        trayer           # A lightweight GTK2-based systray for UNIX desktop
        networkmanagerapplet # network manager applet
        pasystray        # PulseAudio system tray
+       xorg.xkill       # xorg xkill utility 
+       lxappearance     # Utility to set fonts, icon themes, cursor themes, etc
+       # Themes
+       # Icon themes
+       hicolor-icon-theme          # Default fallback theme
+       arc-icon-theme
+       moka-icon-theme
+       numix-icon-theme
+       numix-icon-theme-circle
+       numix-icon-theme-square
+       maia-icon-theme
+       papirus-icon-theme
+       pop-icon-theme
+       # gtk themes
+       zuki-themes
+       vimix-gtk-themes
+       stilo-themes
+       # cursor themes
+       numix-cursor-theme
+       bibata-cursors
+       bibata-extra-cursors
+       bibata-cursors-translucent
+       capitaine-cursors
      ];
    };
 
