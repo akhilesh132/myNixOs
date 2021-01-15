@@ -187,12 +187,17 @@
       enable = false;
     };
 
+    services.postgresql = {
+      enable = false;
+      package = pkgs.postgresql;
+    };
+
     # Network time synchronization
     services.chrony.enable = true;
 
     # Picom as X11 compositor
     services.picom = {
-      enable = true;
+      enable = false;
       backend = "xr_glx_hybrid";
       vSync = true;
       fade = true;
@@ -212,7 +217,7 @@
     # Redshift blue light filter - adjust screen brightness and 
     # color temperature
     services.redshift = {
-      enable = true;
+      enable = false;
       brightness.day = "0.8";
       brightness.night = "0.7";
       temperature.day = 5000;
@@ -246,9 +251,10 @@
      home = "/home/akhilesh";
      shell = pkgs.zsh;
      group = "users";
-     extraGroups = [ "networkmanager" "audio" "video" ];
+     extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
      packages = with pkgs; [
        zsh              # The Z shell
+       starship         # A minimal, blazing fast, and extremely customizable prompt for any shell
        ripgrep          # A utility that combines The Silver Searcher with grep
        silver-searcher  # A code-searching tool similar to ack, but faster
        fzf              # fuzzy finder
@@ -260,6 +266,7 @@
        figlet           # Program for making large letters out of ordinary text
        pfetch           # A pretty system information tool written in POSIX sh
        cmatrix          # Simulates the falling characters theme from the Matrix movie
+       lolcat           # A rainbow version of cat 
        xclip            # Tool to access the X clipboard from a console applicaiton
        killall          # Tool to kill multiple processes
        pamixer          # Pulseaudio command line mixer
@@ -338,7 +345,9 @@
        skypeforlinux    # Skype Desktop client
        zoom-us          # Zoom meetings
        calibre          # e-Library manager
+       picom            # X11 compositor
        xbrightness      # X11 screen brightness controller
+       redshift         # Control screen color temperature
        gnome3.cheese    # Take photos and videos with your webcam, with effects
        webcamoid        # Webcam Capture Software
        glances          # Cross-platform curses-based monitoring tool
@@ -372,11 +381,13 @@
        bibata-extra-cursors
        bibata-cursors-translucent
        capitaine-cursors
+       # Security and sandboxing
+       firejail
      ];
    };
 
   # security
-  security.sudo.enable = false; 
+  security.sudo.enable = true; 
 
   # Automatic Upgrades
   # If allowReboot is true, then the system will automatically reboot 
