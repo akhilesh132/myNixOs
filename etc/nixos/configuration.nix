@@ -16,6 +16,10 @@
   # boot loader timeout, null will never timeout 
     boot.loader.timeout = 120;
 
+  # Kernel modules for hardware devices are generally loaded automatically by udev
+  # You can force a module to be loaded via boot.kernelModules
+    boot.kernelModules = [ "fuse" ];
+
   # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
@@ -48,8 +52,7 @@
     # pulseaudio
     hardware.pulseaudio = {
       enable = true;
-     # NixOS allows either a lightweight build (default) 
-     # or full build of PulseAudio to be installed.
+     # NixOS allows either a lightweight build (default) or full build
      # Only the full build has Bluetooth support, so it must be selected here.
      package = pkgs.pulseaudioFull;
     };
@@ -83,13 +86,16 @@
     enable = true;
     autorun = true;
     windowManager = {
-      xmonad.enable = true;
-      xmonad.enableContribAndExtras = true;
-      xmonad.extraPackages = haskellPackages: [ 
-          haskellPackages.xmonad-contrib      # Xmonad contrib
-          haskellPackages.xmobar              # A minimalistic text based status bar
-          haskellPackages.xmonad-wallpaper    # Xmonad wallpaper
-      ];
+      xmonad = {
+        enable = true;
+        enableContribAndExtras = true;
+        extraPackages = haskellPackages: [ 
+            haskellPackages.xmonad-contrib      # Xmonad contrib
+            haskellPackages.xmobar              # A minimalistic text based status bar
+            haskellPackages.xmonad-wallpaper    # Xmonad wallpaper
+        ];
+      };
+      awesome.enable = true;
     };
     desktopManager = {
       xterm.enable = false;
@@ -194,36 +200,10 @@
 
     # Network time synchronization
     services.chrony.enable = true;
-
-    # Picom as X11 compositor
-    services.picom = {
-      enable = false;
-      backend = "xr_glx_hybrid";
-      vSync = true;
-      fade = true;
-      fadeDelta = 5;
-      fadeSteps = [ 0.032 0.033 ]; 
-      settings = {
-        xrender-sync-fence = true;
-      };
-    };
-    
     # Teamviewer
     services.teamviewer.enable = true;
-
     # Jellyfin media server
     services.jellyfin.enable = false;
-
-    # Redshift blue light filter - adjust screen brightness and 
-    # color temperature
-    services.redshift = {
-      enable = false;
-      brightness.day = "0.8";
-      brightness.night = "0.7";
-      temperature.day = 5000;
-      temperature.night = 4000;
-    };
-
     # blueman service provides blueman-applet and blue-manager
     services.blueman.enable = true;
 
@@ -260,6 +240,7 @@
        fzf              # fuzzy finder
        fasd             # Quick command-line access to files and dirs for POSIX shells
        tmux             # Terminal multiplexer
+       tree             # Command to produce a depth indented directory listing
        ranger           # Command line file manager
        nnn              # Light weight Command line file manager
        cmus             # Command line music player
@@ -267,6 +248,8 @@
        pfetch           # A pretty system information tool written in POSIX sh
        cmatrix          # Simulates the falling characters theme from the Matrix movie
        lolcat           # A rainbow version of cat 
+       vivid            # A generator for LS_COLORS with support for multi color themes
+       pywal            # Generate and change colorschemes on the fly
        xclip            # Tool to access the X clipboard from a console applicaiton
        killall          # Tool to kill multiple processes
        pamixer          # Pulseaudio command line mixer
@@ -334,6 +317,7 @@
        imagemagick      # A software suite to create,edit,compose, or convert bitmap images
        ffmpeg           # A complete sol to record,convert and stream audio and video
        ffmpegthumbnailer   # A lightweight video thumbnailer
+       handbrake        # A tool for converting video files and ripping DVDs
        jellyfin         # Jellyfin media server
        rhythmbox        # Rhythmbox GUI music player
        spotify          # Play music from the Spotify music service
