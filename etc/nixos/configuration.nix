@@ -95,10 +95,11 @@
             haskellPackages.xmonad-wallpaper    # Xmonad wallpaper
         ];
       };
-      awesome.enable = true;
     };
     desktopManager = {
       xterm.enable = false;
+      plasma5.enable = false;
+      gnome3.enable = false;
     };
     displayManager = {
      defaultSession = "none+xmonad";
