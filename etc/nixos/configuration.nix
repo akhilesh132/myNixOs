@@ -133,7 +133,7 @@
      mtpfs          # FUSE Filesystem providing access to MTP devices
      jmtpfs         # A FUSE filesystem for MTP devices like Android phones
      fuse3          # Library that allows filesystems to be implemented in user space
-     
+     ntfs3g         # FUSE-based NTFS driver with full write support
    ];
 
   # Fonts
@@ -249,6 +249,7 @@
        pfetch           # A pretty system information tool written in POSIX sh
        cmatrix          # Simulates the falling characters theme from the Matrix movie
        lolcat           # A rainbow version of cat 
+       bc
        vivid            # A generator for LS_COLORS with support for multi color themes
        pywal            # Generate and change colorschemes on the fly
        xclip            # Tool to access the X clipboard from a console applicaiton
@@ -257,7 +258,7 @@
        alacritty        # Terminal emulator
        git              # git version control
        st               # Terminal emulator
-       guake            # Dropdown Terminal emulator
+       gparted          # Graphical disk partitioning tool
        rxvt-unicode     # urxvt Terminal emulator
        dmenu            # A generic menu for the X window System
        rofi             # Window switcher, run dialog and dmenu replacement
@@ -272,6 +273,7 @@
        elasticsearch    # Open Source, Distributed, RESTful Search Engine
        logstash         # A data pipeline that helps you process logs
        kibana           # Visualize logs and time-stamped data
+       zipkin           # Zipkin distributed tracing system
        jetbrains.idea-community   # Intellij Idea IDE
        eclipses.eclipse-java      # Eclipse IDE for Java Developers
        sublime3         # sublime text editor
@@ -289,7 +291,8 @@
        python2          # Python 2
        nodejs           # Node js
        mysql-workbench  # Visual MySql database modelling, administration and querying tool
-       dbeaver          # Universal SQL client for developers, Supports MySQL, PostgreSQL, Oracle and more
+       mysql-client     # MySql client ( mariadb-client )
+       dbeaver          # Universal SQL client, Supports MySQL, PostgreSQL, Oracle and more
        joplin-desktop   # An open source note taking and To-Do application
        mupdf            # A lightweight vim inspired pdf reader
        zathura          # A lightweight pdf reader
@@ -319,6 +322,7 @@
        ffmpeg           # A complete sol to record,convert and stream audio and video
        ffmpegthumbnailer   # A lightweight video thumbnailer
        handbrake        # A tool for converting video files and ripping DVDs
+       playerctl        # Command-line utility for controlling media players implementing MPRIS
        jellyfin         # Jellyfin media server
        rhythmbox        # Rhythmbox GUI music player
        spotify          # Play music from the Spotify music service
