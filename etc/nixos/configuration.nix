@@ -201,12 +201,20 @@
 
     # Network time synchronization
     services.chrony.enable = true;
+   
+    # Gnome keyring
+    services.gnome3.gnome-keyring.enable=true;
+
     # Teamviewer
     services.teamviewer.enable = true;
     # Jellyfin media server
     services.jellyfin.enable = false;
+
     # blueman service provides blueman-applet and blue-manager
     services.blueman.enable = true;
+   
+    # Safeeyes Break reminder
+    services.safeeyes.enable = true;
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
@@ -219,6 +227,8 @@
        # Create a `docker` alias for podman, to use it as a drop-in replacement
        dockerCompat = true;
      };
+
+    anbox.enable = true;
   };
 
 
@@ -269,7 +279,7 @@
        google-chrome    # Google chrome web browser
        brave            # Brave web browser  
        meld             # Visual diff and merge tool
-       bcompare         # Beyond compare - compare files and folders
+       #bcompare         # Beyond compare - compare files and folders
        elasticsearch    # Open Source, Distributed, RESTful Search Engine
        logstash         # A data pipeline that helps you process logs
        kibana           # Visualize logs and time-stamped data
@@ -290,6 +300,8 @@
        python           # Python 3
        python2          # Python 2
        nodejs           # Node js
+       scala            # Scala -  programming language
+       kotlin           # Kotlin -programming language
        mysql-workbench  # Visual MySql database modelling, administration and querying tool
        mysql-client     # MySql client ( mariadb-client )
        dbeaver          # Universal SQL client, Supports MySQL, PostgreSQL, Oracle and more
@@ -311,7 +323,9 @@
        youtube-dl       # Command line youtube downloader
        mps-youtube      # Terminal based Youtube player and helper
        smtube           # Play and download Youtube videos
+       shortwave        # Find and play radio stations from internet
        tdesktop         # Telegram desktop client     
+       signal-desktop   # Private, simple, and secure messenger
        gnome3.eog       # Eye-of-Gnome image viewer
        gthumb           # image viewer, organizer
        gimp             # GNU Image Manipulator - Photo editor
@@ -374,6 +388,12 @@
        firejail
      ];
    };
+
+# Temporarily allow insecure packages
+   nixpkgs.config.permittedInsecurePackages = [
+     "ffmpeg-2.8.17"
+   ];
+ 
 
   # security
   security.sudo.enable = true; 
